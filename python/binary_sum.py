@@ -23,3 +23,5 @@ def add_binary(a,b):
     result_binary = transform_decimal_into_binary(result)
     
     return result_binary
+
+

@@ -19,10 +19,12 @@
 --     Return the top 6. Don't worry about ties.
 
 
-
+--- 3, 2, 1, fight! ---
 SELECT 
-  DISTINCT 
-    fighters.name, COUNT(fighters.won) AS won, COUNT(fighters.lost) AS lost
+    fighters.name, 
+    SUM(fighters.won) as won,
+    SUM(fighters.lost) as lost
+
   FROM fighters
   LEFT JOIN winning_moves AS moves ON fighters.move_id = moves.id 
   WHERE fighters.move_id NOT IN 
@@ -34,8 +36,8 @@ SELECT
       winning_moves.move = 'Shouoken' OR
       winning_moves.move = 'Kikoken' 
   )
-  GROUP BY fighters.won, fighters.name, fighters.lost
-  ORDER BY COUNT(fighters.won)
+  GROUP BY fighters.name
+  ORDER BY won DESC
   LIMIT 6;
   
 

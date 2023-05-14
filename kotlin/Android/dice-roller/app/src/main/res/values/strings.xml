@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">You Shall not Pass</string>
+    <string name="main_message_text">You shall not pass, Balrog!</string>
+    <string name="bottom_message_text">From Gandalf.</string>
+</resources>
